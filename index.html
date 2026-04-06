@@ -558,11 +558,9 @@
         }
 
         .contact-container {
-            max-width: 1400px;
+            max-width: 800px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            text-align: center;
             position: relative;
             z-index: 1;
         }
@@ -576,16 +574,34 @@
             background-clip: text;
         }
 
+        .contact-info > p {
+            color: var(--gray);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
         .contact-details {
-            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 1.5rem;
             color: var(--gray);
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.5rem 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            background: rgba(0, 212, 255, 0.05);
         }
 
         .contact-item-icon {
@@ -600,49 +616,27 @@
             color: var(--primary);
         }
 
-        .contact-form {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 3rem;
-            border-radius: 24px;
-            border: 1px solid rgba(0, 212, 255, 0.1);
+        .contact-item div {
+            text-align: left;
         }
 
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--gray);
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
+        .contact-item strong {
             color: var(--light);
-            font-family: inherit;
-            transition: all 0.3s;
+            display: block;
+            margin-bottom: 0.25rem;
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+        .email-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: color 0.3s;
         }
 
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
+        .email-link:hover {
+            color: var(--secondary);
+            text-decoration: underline;
         }
 
         /* Footer */
@@ -725,10 +719,6 @@
                 height: 200px;
             }
 
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-
             .schedule-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -761,6 +751,11 @@
 
             .programs-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .contact-details {
+                flex-direction: column;
+                align-items: center;
             }
         }
 
@@ -1058,61 +1053,32 @@
     <section class="contact" id="contact">
         <div class="contact-container">
             <div class="contact-info fade-in">
-                <h2>Запишись на тренировку</h2>
-                <p style="color: var(--gray); margin-bottom: 2rem;">Оставь заявку и наш тренер свяжется с тобой для подбора оптимальной программы.</p>
+                <h2>Свяжитесь с нами</h2>
+                <p>Запишитесь на тренировку или задайте вопрос по email</p>
                 
                 <div class="contact-details">
                     <div class="contact-item">
-                        <div class="contact-item-icon">📍</div>
+                        <div class="contact-item-icon">👤</div>
                         <div>
-                            <strong style="color: var(--light); display: block; margin-bottom: 0.25rem;">Адрес</strong>
-                            <span>г. Colomiers 31770</span>
+                            <strong>Тренер</strong>
+                            <span>Тим - Франция</span>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-item-icon">📞</div>
                         <div>
-                            <strong style="color: var(--light); display: block; margin-bottom: 0.25rem;">Телефон</strong>
-                            <span>+33767600707</span>
+                            <strong>Телефон</strong>
+                            <span>0767600707</span>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-item-icon">✉️</div>
                         <div>
-                            <strong style="color: var(--light); display: block; margin-bottom: 0.25rem;">Email</strong>
-                            <span>football.tim.info@gmail.com</span>
+                            <strong>Email</strong>
+                            <a href="mailto:info@footballpro.ru" class="email-link">info@footballpro.ru</a>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="contact-form fade-in">
-                <form>
-                    <div class="form-group">
-                        <label>Имя</label>
-                        <input type="text" placeholder="Введите ваше имя" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Телефон</label>
-                        <input type="tel" placeholder="+7 (___) ___-__-__" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Уровень подготовки</label>
-                        <select>
-                            <option>Начинающий</option>
-                            <option>Любитель</option>
-                            <option>Полупрофессионал</option>
-                            <option>Профессионал</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Сообщение</label>
-                        <textarea placeholder="Расскажите о ваших целях..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
-                        Отправить заявку →
-                    </button>
-                </form>
             </div>
         </div>
     </section>
@@ -1175,12 +1141,6 @@
             navLinks.style.flexDirection = 'column';
             navLinks.style.padding = '2rem';
             navLinks.style.gap = '1.5rem';
-        });
-
-        // Form submission
-        document.querySelector('form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
         });
     </script>
 </body>
